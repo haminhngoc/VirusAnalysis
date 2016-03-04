@@ -7,10 +7,11 @@ public class StatisticAsmInstructions {
 	static PrintStream console = System.out;
 	static Scanner consoleReader = new Scanner(System.in);
 
-	static String folderName = "./asm";
-	static String outFileName = getCurrentTimeStamp() + ".asmout";
+	static String folderName = "asm";
+	static String outFileName = getCurrentTimeStamp();
+	static String outAllFileName = outFileName + "_all";
 
-	static HashMap<String, HashMap<String, Instruction>> instructionMap = new HashMap<String, HashMap<String, Instruction>>();
+	static HashMap<String, HashMap<String, Instruction>> fileInsMap = new HashMap<String, HashMap<String, Instruction>>();
 	static HashMap<String, Instruction> allInstructionMap = new HashMap<String, Instruction>();
 
 	static public void main(String[] args) {
@@ -31,39 +32,58 @@ public class StatisticAsmInstructions {
 			return;
 		}
 
-		files = (File[]) Arrays.stream(files).filter(file -> file.getName().endsWith(".asm")).toArray();
+		ArrayList<File> asmFiles = new ArrayList<File>();
+		for (File file : files) {
+			if (file.getName().toLowerCase().endsWith(".asm")) {
+				asmFiles.add(file);
+			}
+		}
 
-		if (files.length == 0) {
+		if (asmFiles.size() == 0) {
 			showExitMessage("There is not any asm file in " + folderName + ".");
 			return;
 		}
 
 		if (args.length > 1) {
 			outFileName = args[1];
+			outAllFileName = outFileName + "_all";
 		}
-		File outFile = new File(outFileName);
-		if (!outFile.isFile() || !outFile.canWrite()) {
-			showExitMessage("Can't create or write to file: " + outFileName + ".");
-			return;
-		}
+		outFileName += ".csv";
+		outAllFileName += ".csv";
 
 		BufferedWriter outFileWriter = null;
+		BufferedWriter outAllFileWriter = null;
 		try {
-			outFileWriter = new BufferedWriter(new FileWriter(outFile, true));
+			outFileWriter = new BufferedWriter(new FileWriter(outFileName, true));
+			outAllFileWriter = new BufferedWriter(new FileWriter(outAllFileName, true));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			return;
 		}
 
-		for (int i = 0; i < files.length; i++) {
-			File file = files[i];
+		StringBuilder outBuffer = new StringBuilder();
+		for (int i = 0; i < asmFiles.size(); i++) {
+			File file = asmFiles.get(i);
+			String fileName = file.getName();
+			console.println(String.format("Parsing file: %s (%d/%d)", fileName, i + 1, files.length));
+
 			try {
-				String fileName = file.getName();
-				console.println("Parsing file: " + fileName + "(" + i + "/" + files.length + ")");
+
 				parseFile(file.getAbsolutePath(), fileName);
 
-				if (i % 10 == 0) {
+				HashMap<String, Instruction> insMap = fileInsMap.get(fileName);
+				if (insMap != null) {
+					getText(outBuffer, insMap);
+				}
+
+				if (i % 2 == 1) {
+					outFileWriter.write(outBuffer.toString());
 					outFileWriter.flush();
+					outBuffer = new StringBuilder();
+
+					StringBuilder outAllBuffer = new StringBuilder();
+					getText(outAllBuffer, allInstructionMap);
+					outAllFileWriter.write(outAllBuffer.toString());
 				}
 			} catch (IOException ex) {
 				ex.printStackTrace();
@@ -71,7 +91,10 @@ public class StatisticAsmInstructions {
 		}
 
 		try {
+			outFileWriter.write(outBuffer.toString());
+			outFileWriter.flush();
 			outFileWriter.close();
+			outAllFileWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -80,28 +103,31 @@ public class StatisticAsmInstructions {
 	static void parseFile(String filePath, String fileName) throws IOException {
 		BufferedReader fileReader = new BufferedReader(new FileReader(filePath));
 
-		HashMap<String, Instruction> fileMap = instructionMap.get(fileName);
-		if (fileMap == null) {
-			fileMap = new HashMap<String, Instruction>();
-			instructionMap.put(fileName, fileMap);
+		HashMap<String, Instruction> insMap = fileInsMap.get(fileName);
+		if (insMap == null) {
+			insMap = new HashMap<String, Instruction>();
+			fileInsMap.put(fileName, insMap);
 		}
 
 		String line;
 		while ((line = fileReader.readLine()) != null) {
 			int i = line.indexOf(":\t");
+			if (i < 0) {
+				continue;
+			}
 			String insText = line.substring(i + 2, line.length()).trim();
 
-			Instruction instruction = fileMap.get(insText);
+			Instruction instruction = insMap.get(insText);
 			if (instruction == null) {
 				instruction = new Instruction(insText, fileName);
-				fileMap.put(fileName, instruction);
+				insMap.put(insText, instruction);
 			}
 			instruction.count++;
 
 			instruction = allInstructionMap.get(insText);
 			if (instruction == null) {
-				instruction = new Instruction(insText, fileName);
-				allInstructionMap.put(fileName, instruction);
+				instruction = new Instruction(insText);
+				allInstructionMap.put(insText, instruction);
 			}
 			instruction.count++;
 		}
@@ -109,18 +135,14 @@ public class StatisticAsmInstructions {
 		fileReader.close();
 	}
 
-	static StringBuffer getText(HashMap<String, Instruction> instructionMap) {
-		StringBuffer bf = new StringBuffer();
-
+	static void getText(StringBuilder bf, HashMap<String, Instruction> instructionMap) {
 		Collection<Instruction> values = instructionMap.values();
 		Instruction[] instructions = values.toArray(new Instruction[values.size()]);
 		Arrays.sort(instructions, (i1, i2) -> i1.insText.compareTo(i2.insText));
 
 		for (Instruction ins : instructions) {
-			bf.append(String.format("\"%s\",\"%s\",%d\r\n", ins.file, ins.insText, ins.count));
+			bf.append(String.format("\"%s\",\"%s\",%d\r\n", ins.fileName, ins.insText, ins.count));
 		}
-
-		return bf;
 	}
 
 	static void showExitMessage(String message) {
@@ -132,18 +154,21 @@ public class StatisticAsmInstructions {
 	}
 
 	static public String getCurrentTimeStamp() {
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
+		return new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date());
 	}
 
 	static class Instruction {
 		public String insText;
-		public String file;
-		public int count;
+		public String fileName = "";
+		public int count = 0;
+
+		public Instruction(String insText) {
+			this.insText = insText;
+		}
 
 		public Instruction(String insText, String file) {
 			this.insText = insText;
-			this.file = file;
-			count = 0;
+			this.fileName = file;
 		}
 	}
 }
