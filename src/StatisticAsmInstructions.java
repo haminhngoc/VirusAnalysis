@@ -60,6 +60,7 @@ public class StatisticAsmInstructions {
 		}
 
 		StringBuilder outBuffer = new StringBuilder();
+		int MOD = Math.max(1, Math.min(10, asmFiles.size() / 100));
 		for (int i = 0; i < asmFiles.size(); i++) {
 			File file = asmFiles.get(i);
 			String fileName = file.getName();
@@ -74,7 +75,7 @@ public class StatisticAsmInstructions {
 					getText(outBuffer, insMap);
 				}
 
-				if (i % 2 == 1) {
+				if (i % MOD == MOD - 1) {
 					outFileWriter.write(outBuffer.toString());
 					outFileWriter.flush();
 					outBuffer = new StringBuilder();
