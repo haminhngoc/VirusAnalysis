@@ -1,0 +1,135 @@
+0x00000000:	cmpb %bh, (%edx)
+0x00000002:	andb 0x6f(%ebx), %ah
+0x00000005:	outsb %dx, %ds:(%esi)
+0x00000006:	jae 0x00000077
+0x00000008:	insb %es:(%edi), %dx
+0x00000077:	cmpb %ah, (%eax)
+0x00000079:	decl %ebp
+0x0000007a:	outsl %dx, %ds:(%esi)
+0x0000007b:	imull %esp, %fs:0x79(%esi), $0x41634d20<UINT32>
+0x00000083:	andb %gs:0x74(%ecx,,2), %al
+0x0000008a:	andb 0x69(%esi), %ah
+0x0000008d:	insb %es:(%edi), %dx
+0x0000008e:	jae 0x000000bf
+0x00000091:	andb %cs:0x61(%ebx), %al
+0x000000bf:	pushl %esi
+0x000000c0:	pushl %eax
+0x000000c1:	subb %al, $0x20<UINT8>
+0x000000c3:	pushl %eax
+0x000000c4:	arpl 0x6c(%ebx), %sp
+0x000000c7:	insb %es:(%edi), %dx
+0x000000c8:	imull %ebp, 0x2c(%esi), $0x72706620<UINT32>
+0x000000cf:	outsl %dx, %ds:(%esi)
+0x000000d0:	je 0x000000f2
+0x000000d2:	popa
+0x000000f2:	jb 0x00000156
+0x000000f5:	jle 0x00000128
+0x00000009:	andb %gs:0x75(%edi), %ch
+0x0000000d:	je 0x0000007f
+0x0000000f:	jne 0x00000085
+0x00000096:	outsb %dx, %ds:(%esi)
+0x00000097:	andb 0x6e(%ecx), %ah
+0x0000009a:	jns 0x0000010b
+0x0000009c:	outsb %dx, %ds:(%esi)
+0x0000010b:	popa
+0x0000010c:	je 0x00000137
+0x0000010e:	andb 0x20(%edi,%ebp,2), %ah
+0x000000d3:	jb 0x0000013a
+0x000000d5:	andb 0x63(%edi,%ebp,2), %ch
+0x0000013a:	pushl %edx
+0x0000013b:	incl %ebx
+0x0000013c:	popl %esp
+0x0000013d:	jae 0x000001a2
+0x000001a2:	andb (%esi,%ebp,2), %ah
+0x000001a5:	imull %esp, 0x6b(%ebx), $0x5c3a6320<UINT32>
+0x000001ac:	pushl %edi
+0x000001ad:	decl %ecx
+0x000001ae:	decl %esi
+0x000001af:	incl %esp
+0x000001b0:	decl %edi
+0x000001b1:	pushl %edi
+0x000001b2:	pushl %ebx
+0x000001b3:	popl %esp
+0x000001b4:	popl %eax
+0x000001b5:	pushl %eax
+0x000001b6:	pushl %ebp
+0x000001b7:	jo 0x00000220
+0x000001b9:	jb 0x0000021c
+0x00000220:	jns 0x0000022f
+0x0000022f:	andb 0x20(%ecx), %ah
+0x00000232:	pushl $0x61656469<UINT32>
+0x00000237:	ja 0x0000029a
+0x00000239:	jns 0x0000025b
+0x0000029a:	insb %es:(%edi), %dx
+0x0000029b:	jns 0x000002bd
+0x000002bd:	cmpb %bl, 0x50(%eax,%ebx,2)
+0x000002c1:	popl %esp
+0x000002c2:	js 0x00000334
+0x000002c4:	boundl %esp, %cs:0x74(%ecx)
+0x00000334:	outsl %dx, %ds:(%esi)
+0x00000335:	outsb %dx, %ds:(%esi)
+0x00000336:	js 0x0000039f
+0x0000039f:	pushl %ebx
+0x000003a0:	popl %esp
+0x000003a1:	pushl %ebx
+0x000003a2:	popl %ecx
+0x000003a3:	pushl %ebx
+0x000003a4:	pushl %esp
+0x000003a5:	incl %ebp
+0x000003a6:	decl %ebp
+0x000003a7:	popl %esp
+0x000003a8:	pushl %edx
+0x000003a9:	imull %esi, %gs:0x65(%edx), $0x6f697463<UINT32>
+0x000003b2:	outsb %dx, %ds:(%esi)
+0x000003b3:	boundl %esp, %cs:0x74(%ecx)
+0x000003b7:	orl %eax, $0x706f630a<UINT32>
+0x000003bc:	jns 0x000003de
+0x00000128:	andb 0x20(%edi,%ebp,2), %dh
+0x0000012c:	decl %ecx
+0x0000012d:	pushl %edx
+0x0000012e:	incl %ebx
+0x0000012f:	orl %eax, $0x6c65640a<UINT32>
+0x00000134:	andb 0x3a(%ebx), %ah
+0x00000137:	popl %esp
+0x00000138:	insl %es:(%edi), %dx
+0x00000139:	decl %ecx
+0x0000013f:	jb 0x000001aa
+0x00000085:	andb %gs:0x74(%ecx,,2), %al
+0x0000009d:	andb %gs:0x6c(%ebp,,2), %dh
+0x000000a2:	insb %es:(%edi), %dx
+0x000000a3:	andb 0x65(%ebp), %ch
+0x000000a6:	andb 0x68(%edi), %dh
+0x000000a9:	jb 0x00000111
+0x00000111:	andb 0x6f(%ebx), %ah
+0x00000114:	jo 0x0000018f
+0x00000116:	andb 0x25252030, %ah
+0x00000112:	arpl 0x70(%edi), %bp
+0x00000115:	jns 0x00000137
+0x000000d9:	popa
+0x000000da:	je 0x00000141
+0x000000dc:	aas
+0x000001bb:	boundl %esp, %gs:0x74(%ecx)
+0x0000021c:	arpl 0x72(%edi,%ebp,2), %si
+0x00000222:	orb %ah, 0x64(%ebx)
+0x0000025b:	popl %eax
+0x0000025c:	pushl %eax
+0x0000025d:	orl %eax, $0x7474610a<UINT32>
+0x00000262:	jb 0x000002cd
+0x000002cd:	jns 0x000002ef
+0x000002ef:	cmpb %bl, 0x49(%edi,%edx,2)
+0x000002f3:	decl %esi
+0x000002f4:	incl %esp
+0x000002f5:	decl %edi
+0x000002f6:	pushl %edi
+0x000002f7:	pushl %ebx
+0x000002f8:	popl %esp
+0x000002f9:	decl %eax
+0x000002fa:	pushl %esp
+0x000002fb:	pushl %esp
+0x000002fc:	pushl %eax
+0x000002fd:	pushl %edx
+0x000002fe:	imull %esi, %gs:0x65(%edx), $0x682e7463<UINT32>
+0x00000307:	je 0x00000376
+0x00000309:	boundl %esp, %cs:0x74(%ecx)
+0x000002c8:	orl %eax, $0x706f630a<UINT32>
+0x000001aa:	cmpb %bl, 0x49(%edi,%edx,2)

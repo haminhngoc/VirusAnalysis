@@ -52,10 +52,8 @@ public class StatisticAsmInstructions {
 		outAllFileName += ".csv";
 
 		BufferedWriter outFileWriter = null;
-		BufferedWriter outAllFileWriter = null;
 		try {
-			outFileWriter = new BufferedWriter(new FileWriter(outFileName, true));
-			outAllFileWriter = new BufferedWriter(new FileWriter(outAllFileName, true));
+			outFileWriter = new BufferedWriter(new FileWriter(outFileName, false));
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			return;
@@ -65,7 +63,7 @@ public class StatisticAsmInstructions {
 		for (int i = 0; i < asmFiles.size(); i++) {
 			File file = asmFiles.get(i);
 			String fileName = file.getName();
-			console.println(String.format("Parsing file: %s (%d/%d)", fileName, i + 1, files.length));
+			console.println(String.format("Parsing file: %s (%d/%d)", fileName, i + 1, asmFiles.size()));
 
 			try {
 
@@ -81,9 +79,7 @@ public class StatisticAsmInstructions {
 					outFileWriter.flush();
 					outBuffer = new StringBuilder();
 
-					StringBuilder outAllBuffer = new StringBuilder();
-					getText(outAllBuffer, allInstructionMap);
-					outAllFileWriter.write(outAllBuffer.toString());
+					writeAllInstructions(outAllFileName);
 				}
 			} catch (IOException ex) {
 				ex.printStackTrace();
@@ -92,11 +88,23 @@ public class StatisticAsmInstructions {
 
 		try {
 			outFileWriter.write(outBuffer.toString());
-			outFileWriter.flush();
 			outFileWriter.close();
-			outAllFileWriter.close();
+
+			writeAllInstructions(outAllFileName);
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	static void writeAllInstructions(String outAllFileName) {
+		try {
+			StringBuilder outAllBuffer = new StringBuilder();
+			getText(outAllBuffer, allInstructionMap);
+			BufferedWriter outAllFileWriter = new BufferedWriter(new FileWriter(outAllFileName, false));
+			outAllFileWriter.write(outAllBuffer.toString());
+			outAllFileWriter.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
 		}
 	}
 
