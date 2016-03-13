@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ExtractAsmFromCHM" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="HtmlFolder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Html</Value>
+    </Setting>
+    <Setting Name="AsmFolder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Asm</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
